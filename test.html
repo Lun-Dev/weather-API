@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <h1>hi</h1>
+<script>
+  const h1 = document.querySelector('h1');
+  fetch('https://api.openweathermap.org/data/2.5/weather?q=London&appid=APIKEY', {mode: 'cors'})
+    .then(res => res.json())
+    .then(data => {
+      console.log(data)
+      h1.innerHTML = `<li>${JSON.stringify(data.name)}</li>` + 
+                     `<li>${JSON.stringify(data.weather[0].main)}</li>`
+      })
+</script>
+</body>
+</html>
